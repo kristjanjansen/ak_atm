@@ -1,0 +1,22 @@
+body {
+  font-family: 'Gochi Hand', sans-serif;
+  font-size: 30px;
+  margin: 30px;
+}
+#title {
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+  margin-bottom: 100px;
+}
+.b {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
