@@ -18,8 +18,8 @@ var states = {
     'b4' : 'b4'
   },
   'withdraw' : {
-    'b1' : 'front',
-    'b2' : 'b2',
+    'b1' : 'b1',
+    'b2' : 'front',
     'b3' : 'b2',
     'b4' : 'b4'
   }
@@ -29,14 +29,7 @@ var currentState = 'front'
 
 
 app.sockets.on('connection', function (socket) {
-  app.sockets.emit('message', { 
-    state: currentState,
-    b1: states[currentState].b1,
-    b2: states[currentState].b2,
-    b3: states[currentState].b3,
-    b4: states[currentState].b4,
-  }
-  )
+  app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
 })
 
 var board = new five.Board();
@@ -67,32 +60,25 @@ board.on("ready", function() {
     b1.on("read", function(err, val) {
       if (val > 890) {
         currentState = states[currentState].b1 ? states[currentState].b1 : currentState
-        app.sockets.emit('message', { 
-          state: currentState,
-          b1: states[currentState].b1,
-          b2: states[currentState].b2,
-          b3: states[currentState].b3,
-          b4: states[currentState].b4,
-        }
-        ) 
+        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b2.on("read", function(err, val) {
       if (val > 890) {
         currentState = (states[currentState].b2) ? states[currentState].b2 : currentState
-        app.sockets.emit('message', { image: states[currentState].image}) 
+        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b3.on("read", function(err, val) {
       if (val > 890) {
         currentState = states[currentState].b3 ? states[currentState].b3 : currentState
-        app.sockets.emit('message', { image: states[currentState].image}) 
+        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b4.on("read", function(err, val) {
       if (val > 890) {
         currentState = states[currentState].b4 ? states[currentState].b4 : currentState
-        app.sockets.emit('message', { image: states[currentState].image}) 
+        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
 

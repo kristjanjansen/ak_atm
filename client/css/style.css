@@ -10,9 +10,10 @@ body {
   margin-bottom: 100px;
 }
 .b {
-  border: 1px solid black;
+  border: 3px solid black;
   padding: 10px;
   margin-bottom: 10px;
+  border-radius: 6px;
 }
 .left {
   float: left;
