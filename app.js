@@ -33,7 +33,7 @@ app.sockets.on('connection', function (socket) {
 })
 
 var board = new five.Board();
-var freq = 500
+var freq = 0
 
 board.on("ready", function() {
 
