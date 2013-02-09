@@ -27,15 +27,14 @@ var states = {
 
 var currentState = 'front'
 
-
-app.sockets.on('connection', function (socket) {
-  app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
-})
-
 var board = new five.Board();
 var freq = 0
 
 board.on("ready", function() {
+
+  app.sockets.on('connection', function (socket) {
+
+    app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
 
     b1 = new five.Sensor({
       pin: "A0"
@@ -81,5 +80,7 @@ board.on("ready", function() {
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
+
+})
 
 })
