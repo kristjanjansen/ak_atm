@@ -13,15 +13,15 @@ app.httpServer.listen(8000)
 var states = {
   'front' : {
     'b1' : 'withdraw',
-    'b2' : 'b2',
-    'b3' : 'b3',
-    'b4' : 'b4'
+    'b2' : null,
+    'b3' : null,
+    'b4' : null
   },
   'withdraw' : {
-    'b1' : 'b1',
+    'b1' : null,
     'b2' : 'front',
-    'b3' : 'b2',
-    'b4' : 'b4'
+    'b3' : null,
+    'b4' : null
   }
 }
 
