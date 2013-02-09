@@ -65,7 +65,7 @@ board.on("ready", function() {
     });
     b2.on("read", function(err, val) {
       if (val > 890) {
-        currentState = (states[currentState].b2) ? states[currentState].b2 : currentState
+        currentState = states[currentState].b2 ? states[currentState].b2 : currentState
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
