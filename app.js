@@ -9,41 +9,7 @@ app.route('/*').files(__dirname + '/client');
 
 app.httpServer.listen(8000)
 
-
-var states = {
-  'Esileht' : {
-    'b1' : 'Keel',
-    'b2' : 'Kaardi tagastamine',
-    'b3' : 'Sularaha',
-    'b4' : 'Kontojääk'
-  },
-  'Keel' : {
-    'b1' : null,
-    'b2' : 'Esileht',
-    'b3' : null,
-    'b4' : null
-  },
-  'Kontojääk' : {
-    'b1' : null,
-    'b2' : 'Esileht',
-    'b3' : 'Paberil',
-    'b4' : 'Ekraanil'
-  },
-  'Sularaha' : {
-    'title': 'Palun vali summa',
-    'b1' : '5 EUR',
-    'b2' : '20 EUR',
-    'b3' : '40 EUR',
-    'b4' : 'Muu summa'
-  },
-  'Keel' : {
-    'b1' : 'Eesti',
-    'b2' : 'English',
-    'b3' : 'Pусский',
-    'b4' : 'Suomi'
-  }
-}
-
+var states = require('./states').states
 var currentState = 'Esileht'
 
 var board = new five.Board();
@@ -77,25 +43,25 @@ board.on("ready", function() {
           
     b1.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[currentState].b1 ? states[currentState].b1 : currentState
+        currentState = states[states[currentState].b1.go] ? states[currentState].b1.go : currentState
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b2.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[currentState].b2 ? states[currentState].b2 : currentState
+        currentState = states[states[currentState].b2.go] ? states[currentState].b2.go : currentState
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b3.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[currentState].b3 ? states[currentState].b3 : currentState
+        currentState = states[states[currentState].b3.go] ? states[currentState].b3.go : currentState
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });
     b4.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[currentState].b4 ? states[currentState].b4 : currentState
+        currentState = states[states[currentState].b4.go] ? states[currentState].b4.go : currentState
         app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
       }
     });

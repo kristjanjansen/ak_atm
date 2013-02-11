@@ -1,0 +1,51 @@
+exports.states = {
+  'Esileht' : {
+    title : 'Esileht',
+    b1 : { title:'Keel', go: 'Keel' },
+    b2 : { title:'Kaardi tagastamine', go: 'Esileht' },
+    b3 : { title:'Sularaha', go: 'Sularaha' },
+    b4 : { title:'Kontojääk', go: 'Kontojääk' },  
+  },
+  'Keel' : {
+    title : 'Palun vali keel',
+    b1 : { title:'Eesti', go: 'Esileht' },
+    b2 : { title:'English', go: 'Esileht' },
+    b3 : { title:'Pусский', go: 'Esileht' },
+    b4 : { title:'Suomi', go: 'Esileht' },  
+  },
+  'Sularaha' : {
+    title : 'Palun vali summa',
+    b1 : { title: '5 EUR', go: 'Raha kättesaamine' },
+    b2 : { title:'20 EUR', go: 'Raha kättesaamine' },
+    b3 : { title:'50 EUR', go: 'Raha kättesaamine' },
+    b4 : { title:'Muu summa', go: 'Raha kättesaamine' },  
+  },
+  'Kontojääk' : {
+    title: 'Kontojääk',
+    b1 : { title: null, go: null },
+    b2 : { title:'Katkesta', go: 'Esileht' },
+    b3 : { title:'Paberil', go: 'Paberil' },
+    b4 : { title:'Ekraanil', go: 'Ekraanil' },  
+  },
+  'Raha kättesaamine' : {
+    title: 'Raha kättesaamine',
+    b1 : { title: null, go: null },
+    b2 : { title:'Katkesta', go: 'Esileht' },
+    b3 : { title: null, go: null},
+    b4 : { title: null, go: null },  
+  },  
+  'Ekraanil' : {
+    title: 'Ekraanil',
+    b1 : { title: null, go: null },
+    b2 : { title:'Katkesta', go: 'Esileht' },
+    b3 : { title: null, go: null},
+    b4 : { title: null, go: null },  
+  },
+  'Paberil' : {
+    title: 'Paberil',
+    b1 : { title: null, go: null },
+    b2 : { title:'Katkesta', go: 'Esileht' },
+    b3 : { title: null, go: null},
+    b4 : { title: null, go: null },  
+  },
+}
