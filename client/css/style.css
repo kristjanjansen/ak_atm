@@ -1,24 +1,41 @@
 body {
   font-family: 'Gochi Hand', sans-serif;
   font-size: 30px;
-  margin: 30px;
+  margin: 0px;
+  background: orange;
 }
 #title {
   text-align: center;
   width: 100%;
   font-size: 50px;
   margin-bottom: 100px;
+  margin-top:250px;
 }
 .b {
   border: 3px solid black;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
-  width: 200px;
+  width: 320px;
+  background: #fff;
 }
 .left {
   float: left;
+  margin-left: -10px;
+}
+.left .b {
+  padding-left: 20px;
+}
+.right .b {
+  padding-right: 20px;
 }
 .right {
   float: right;
+  margin-right: -10px;
+}
+#b1, #b3 {
+  margin-bottom:35px;
+}
+.hidden {
+  opacity: 0;
 }

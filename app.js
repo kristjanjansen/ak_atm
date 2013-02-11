@@ -11,21 +11,40 @@ app.httpServer.listen(8000)
 
 
 var states = {
-  'front' : {
-    'b1' : 'withdraw',
-    'b2' : null,
+  'Esileht' : {
+    'b1' : 'Keel',
+    'b2' : 'Kaardi tagastamine',
+    'b3' : 'Sularaha',
+    'b4' : 'Kontojääk'
+  },
+  'Keel' : {
+    'b1' : null,
+    'b2' : 'Esileht',
     'b3' : null,
     'b4' : null
   },
-  'withdraw' : {
+  'Kontojääk' : {
     'b1' : null,
-    'b2' : 'front',
-    'b3' : null,
-    'b4' : null
+    'b2' : 'Esileht',
+    'b3' : 'Paberil',
+    'b4' : 'Ekraanil'
+  },
+  'Sularaha' : {
+    'title': 'Palun vali summa',
+    'b1' : '5 EUR',
+    'b2' : '20 EUR',
+    'b3' : '40 EUR',
+    'b4' : 'Muu summa'
+  },
+  'Keel' : {
+    'b1' : 'Eesti',
+    'b2' : 'English',
+    'b3' : 'Pусский',
+    'b4' : 'Suomi'
   }
 }
 
-var currentState = 'front'
+var currentState = 'Esileht'
 
 
 app.sockets.on('connection', function (socket) {
@@ -33,7 +52,7 @@ app.sockets.on('connection', function (socket) {
 })
 
 var board = new five.Board();
-var freq = 500
+var freq = 0
 
 board.on("ready", function() {
 
