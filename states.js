@@ -1,13 +1,21 @@
 exports.states = {
+  
+  'PIN' : {
+    title : 'Sisesta PIN',
+    b1 : { title:null, go: null },
+    b2 : { title:null, go: null },
+    b3 : { title:'****', go: null },
+    b4 : { title:'Sisesta', go: 'Esileht' },
+  },
   'Esileht' : {
-    title : 'Esileht',
+    title : 'Tere tulemast',
     b1 : { title:'Keel', go: 'Keel' },
-    b2 : { title:'Kaardi tagastamine', go: 'Esileht' },
+    b2 : { title:'Kaardi tagastamine', go: 'Lõpp' },
     b3 : { title:'Sularaha', go: 'Sularaha' },
     b4 : { title:'Kontojääk', go: 'Kontojääk' },  
   },
   'Keel' : {
-    title : 'Palun vali keel',
+    title : null,
     b1 : { title:'Eesti', go: 'Esileht' },
     b2 : { title:'English', go: 'Esileht' },
     b3 : { title:'Pусский', go: 'Esileht' },
@@ -18,7 +26,7 @@ exports.states = {
     b1 : { title: '5 EUR', go: 'Raha kättesaamine' },
     b2 : { title:'20 EUR', go: 'Raha kättesaamine' },
     b3 : { title:'50 EUR', go: 'Raha kättesaamine' },
-    b4 : { title:'Muu summa', go: 'Raha kättesaamine' },  
+    b4 : { title:'Muu summa', go: 'Muu' },  
   },
   'Kontojääk' : {
     title: 'Kontojääk',
@@ -28,24 +36,38 @@ exports.states = {
     b4 : { title:'Ekraanil', go: 'Ekraanil' },  
   },
   'Raha kättesaamine' : {
-    title: 'Raha kättesaamine',
+    title: 'Palun oodake, raha väljastatakse',
     b1 : { title: null, go: null },
     b2 : { title:'Katkesta', go: 'Esileht' },
     b3 : { title: null, go: null},
     b4 : { title: null, go: null },  
   },  
   'Ekraanil' : {
-    title: 'Ekraanil',
+    title: 'Vabad vahendid:5000 EUR',
     b1 : { title: null, go: null },
     b2 : { title:'Katkesta', go: 'Esileht' },
     b3 : { title: null, go: null},
     b4 : { title: null, go: null },  
   },
   'Paberil' : {
-    title: 'Paberil',
+    title: 'Oodake, kviitungit väljastatakse',
     b1 : { title: null, go: null },
     b2 : { title:'Katkesta', go: 'Esileht' },
     b3 : { title: null, go: null},
     b4 : { title: null, go: null },  
+  },
+  'Muu' : {
+    title: '[..................]',
+    b1 : { title: null, go: null },
+    b2 : { title:'Katkesta', go: 'Esileht' },
+    b3 : { title: null , go: null},
+    b4 : { title: 'Sisesta', go: 'Raha kättesaamine' },  
+  },
+  'Lõpp' : {
+    title : 'Palun võtke kaart',
+    b1 : { title:null, go: null },
+    b2 : { title:'Alusta otsast', go: 'Esileht' },
+    b3 : { title:null, go:null },
+    b4 : { title:null, go: null },  
   },
 }

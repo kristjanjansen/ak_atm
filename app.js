@@ -10,10 +10,10 @@ app.route('/*').files(__dirname + '/client');
 app.httpServer.listen(8000)
 
 var states = require('./states').states
-var currentState = 'Esileht'
+var currentState = 'PIN'
 
 var board = new five.Board();
-var freq = 0
+var freq = 400
 
 board.on("ready", function() {
 
@@ -40,7 +40,7 @@ board.on("ready", function() {
       pin: "A3"
       , freq: freq
     });
-          
+    
     b1.on("read", function(err, val) {
       if (val > 890) {
         currentState = states[states[currentState].b1.go] ? states[currentState].b1.go : currentState
