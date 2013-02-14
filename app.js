@@ -43,32 +43,42 @@ board.on("ready", function() {
     
     b1.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[states[currentState].b1.go] ? states[currentState].b1.go : currentState
-        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
-      }
+        sendMessage('b1')
+     }
     });
     b2.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[states[currentState].b2.go] ? states[currentState].b2.go : currentState
-        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
+        sendMessage('b2')
       }
     });
     b3.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[states[currentState].b3.go] ? states[currentState].b3.go : currentState
-        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
+        sendMessage('b3')
       }
     });
     b4.on("read", function(err, val) {
       if (val > 890) {
-        currentState = states[states[currentState].b4.go] ? states[currentState].b4.go : currentState
-        app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
-      }
+        sendMessage('b4')
+       }
     });
 
 })
 
 })
 
+
+function sendMessage(key) {
+  
+  var states = require('./states').states
+  
+  currentState = states[states[currentState][key].go] ? states[currentState][key].go : currentState
+  app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
+  if (states[currentState].timer) {
+    setTimeout(function() {
+      currentState = states[states[currentState].timer.go] ? states[currentState].timer.go : currentState
+      app.sockets.emit('message', {currentState: currentState, state: states[currentState]})        
+    }, states[currentState].timer.time)
+  } 
+} 
 
  
